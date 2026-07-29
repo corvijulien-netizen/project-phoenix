@@ -1,5 +1,5 @@
 window.PHOENIX_DATA = {
-  deploymentRevision: "2026-07-29T13:17:00+02:00",
+  deploymentRevision: "2026-07-29T13:36:00+02:00",
   profile: {
     name: "Julien",
     startDate: "2026-07-28",
@@ -63,3 +63,69 @@ window.PHOENIX_DATA = {
     { icon: "🏆", title: "–5 kg", description: "Premier grand palier de poids.", unlocked: false }
   ]
 };
+
+(function applyPhoenixMobileFix(){
+  const style = document.createElement('style');
+  style.id = 'phoenix-mobile-fix';
+  style.textContent = `
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .wrap, .hero, .stats, .grid2, .health, .journal, .photos, .trophies,
+    .card, .stat, .score, .hero > *, .grid2 > *, .health > *, .journal > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+    img, svg { max-width: 100%; height: auto; }
+    .lead, .meta, .score p, .foot, .caption, .privacy p, h1, h2, h3 {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 18px) !important; }
+      .hero {
+        width: 100% !important;
+        grid-template-columns: minmax(0,1fr) !important;
+        padding: 42px 20px 28px !important;
+        gap: 28px !important;
+      }
+      .hero > div { width: 100%; min-width: 0; }
+      .hero h1 {
+        font-size: clamp(34px, 10.5vw, 46px) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -0.045em !important;
+      }
+      .lead { font-size: 16px !important; }
+      .actions { width: 100%; }
+      .btn { width: 100%; display: block; }
+      .meta { white-space: normal !important; }
+      .score {
+        width: 100% !important;
+        max-width: none !important;
+        display: grid !important;
+        grid-template-columns: 112px minmax(0,1fr) !important;
+        align-items: center !important;
+        gap: 16px !important;
+        padding: 18px !important;
+        text-align: left !important;
+      }
+      .ring {
+        width: 112px !important;
+        height: 112px !important;
+        margin: 0 !important;
+      }
+      .ring strong { font-size: 34px !important; }
+      .score > small, .score > h3, .score > p { grid-column: 2; }
+      .score > small { align-self: end; }
+      .score > h3 { margin: -4px 0 0 !important; }
+      .score > p { margin-top: 2px !important; }
+      .stats { margin: 12px 0 0 !important; width: 100% !important; }
+      .stat { width: 100% !important; }
+      .foot { flex-wrap: wrap; }
+      .topline, .sleeplegend, .minis, .activity, .bodydata { min-width: 0; }
+      .topline > *, .sleeplegend > *, .minis > *, .activity > *, .bodydata > * { min-width: 0; }
+      .ctitle { flex-wrap: wrap; }
+      .privacy { align-items: flex-start; }
+      footer { gap: 10px; }
+    }
+  `;
+  document.head.appendChild(style);
+})();
