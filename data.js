@@ -1,4 +1,5 @@
 window.PHOENIX_DATA = {
+  deploymentRevision: "2026-07-29T13:10:00+02:00",
   profile: {
     name: "Julien",
     startDate: "2026-07-28",
