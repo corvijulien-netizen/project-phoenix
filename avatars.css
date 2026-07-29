@@ -1,0 +1,57 @@
+/* Project Phoenix — avatars thématiques V1 */
+:root{--phoenix-avatar-sprite:none}
+.phoenixAvatar,.topic .icon,.phoenix-side-nav .navIcon,.phoenix-mobile-nav .navIcon,.detailHero:after{background-image:var(--phoenix-avatar-sprite);background-repeat:no-repeat;background-size:400% auto}
+
+/* Rappel Phoenix 365 sur l'accueil */
+.mark{position:relative;overflow:visible}
+.mark:after{content:"365";position:absolute;right:-7px;bottom:-6px;min-width:25px;padding:2px 5px;border-radius:999px;background:linear-gradient(135deg,#4d9cff,#8d7cf6);color:#fff;border:2px solid #0b111b;font-size:8px;line-height:1.25;font-weight:950;letter-spacing:.02em;box-shadow:0 5px 14px rgba(77,156,255,.35)}
+.phoenixCard{overflow:visible}
+.phoenixCard:after{content:"PHOENIX 365";position:absolute;right:15px;top:15px;z-index:3;padding:7px 10px;border-radius:999px;background:linear-gradient(135deg,#4d9cff,#8d7cf6);color:white;font-size:9px;font-weight:950;letter-spacing:.09em;box-shadow:0 9px 24px rgba(77,156,255,.28)}
+.phoenixCard img{width:min(245px,84%)}
+
+/* Avatars dans les cartes de la page principale */
+.topic .icon{width:86px;height:86px;border-radius:22px;font-size:0!important;box-shadow:0 13px 30px rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.12);background-color:#f5f7ff;transition:.2s transform,.2s filter}
+.topic:hover .icon{transform:translateY(-3px) scale(1.035);filter:saturate(1.08)}
+.topic.activity .icon{background-position:4% 4%}
+.topic.sleep .icon{background-position:50% 4%}
+.topic.nutrition .icon{background-position:96% 4%}
+.topic.transform .icon{background-position:3% 100%}
+.topic.health .icon{background-position:34% 100%}
+.topic.journal .icon{background-position:67% 100%}
+.topic.trophies .icon{background-position:98% 100%}
+.topicTop{align-items:center}
+.topic{min-height:300px}
+.topic h3{margin-top:14px}
+
+/* Navigation latérale et mobile */
+.phoenix-side-nav .navIcon,.phoenix-mobile-nav .navIcon{font-size:0!important;background-color:#f6f8ff;border-radius:11px;border:1px solid rgba(255,255,255,.12)}
+.phoenix-side-nav .activity-link .navIcon,.phoenix-mobile-nav a[href*="activite"] .navIcon{background-position:4% 4%}
+.phoenix-side-nav .sleep-link .navIcon,.phoenix-mobile-nav a[href*="sommeil"] .navIcon{background-position:50% 4%}
+.phoenix-side-nav .nutrition-link .navIcon{background-position:96% 4%}
+.phoenix-side-nav .transform-link .navIcon,.phoenix-mobile-nav a[href*="transformation"] .navIcon{background-position:3% 100%}
+.phoenix-side-nav .health-link .navIcon{background-position:34% 100%}
+.phoenix-side-nav .journal-link .navIcon,.phoenix-mobile-nav a[href*="journal"] .navIcon{background-position:67% 100%}
+.phoenix-side-nav .trophy-link .navIcon{background-position:98% 100%}
+
+/* Avatar principal de chaque page détaillée */
+.detailHero{padding-right:355px;min-height:330px}
+.detailHero:after{content:"";position:absolute;right:30px;top:50%;width:265px;height:265px;transform:translateY(-50%);border-radius:32px;background-color:#f6f8ff;box-shadow:0 24px 60px rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.14);z-index:1}
+.detailHero>*{position:relative;z-index:2}
+body:has([data-theme-link="activite"].is-active) .detailHero:after{background-position:4% 4%;box-shadow:0 24px 60px rgba(98,213,138,.18)}
+body:has([data-theme-link="sommeil"].is-active) .detailHero:after{background-position:50% 4%;box-shadow:0 24px 60px rgba(141,124,246,.22)}
+body:has([data-theme-link="nutrition"].is-active) .detailHero:after{background-position:96% 4%;box-shadow:0 24px 60px rgba(255,159,77,.2)}
+body:has([data-theme-link="transformation"].is-active) .detailHero:after{background-position:3% 100%;box-shadow:0 24px 60px rgba(77,156,255,.2)}
+body:has([data-theme-link="sante"].is-active) .detailHero:after{background-position:34% 100%;box-shadow:0 24px 60px rgba(70,201,232,.2)}
+body:has([data-theme-link="journal"].is-active) .detailHero:after{background-position:67% 100%;box-shadow:0 24px 60px rgba(255,159,77,.16)}
+body:has([data-theme-link="trophees"].is-active) .detailHero:after{background-position:98% 100%;box-shadow:0 24px 60px rgba(242,199,92,.22)}
+
+/* État de chargement discret */
+html:not(.phoenix-avatars-ready) .topic .icon,html:not(.phoenix-avatars-ready) .detailHero:after{background-image:linear-gradient(145deg,#182333,#101722)}
+html.phoenix-avatars-ready .topic .icon,html.phoenix-avatars-ready .detailHero:after{animation:phoenixReveal .45s ease both}
+@keyframes phoenixReveal{from{opacity:.2;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+html.phoenix-avatars-ready .detailHero:after{animation:phoenixRevealDetail .45s ease both}
+@keyframes phoenixRevealDetail{from{opacity:.2;transform:translateY(calc(-50% + 8px))}to{opacity:1;transform:translateY(-50%)}}
+
+@media(max-width:1080px){.detailHero{padding-right:310px}.detailHero:after{width:225px;height:225px}}
+@media(max-width:760px){.detailHero{padding-right:24px;padding-top:300px}.detailHero:after{right:50%;top:25px;width:230px;height:230px;transform:translateX(50%)}html.phoenix-avatars-ready .detailHero:after{animation:none}.topic .icon{width:76px;height:76px}.topic{min-height:285px}}
+@media(max-width:500px){.topic .icon{width:70px;height:70px}.detailHero{padding-top:265px}.detailHero:after{width:205px;height:205px}}
