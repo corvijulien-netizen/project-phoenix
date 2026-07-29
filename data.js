@@ -1,5 +1,5 @@
 window.PHOENIX_DATA = {
-  deploymentRevision: "2026-07-29T13:44:00+02:00",
+  deploymentRevision: "2026-07-29T14:05:00+02:00",
   profile: {
     name: "Julien",
     startDate: "2026-07-28",
@@ -79,8 +79,8 @@ window.PHOENIX_DATA = {
       overflow-wrap: anywhere;
       word-break: normal;
     }
-    .gallery-link { color: var(--blue) !important; }
-    .gallery-mobile-cta { display:none; }
+    .gallery-link, .history-link { color: var(--blue) !important; }
+    .gallery-mobile-cta, .history-mobile-cta { display:none; }
     @media (max-width: 680px) {
       .wrap { width: calc(100% - 18px) !important; }
       .hero { width:100%!important;grid-template-columns:minmax(0,1fr)!important;padding:42px 20px 28px!important;gap:28px!important; }
@@ -105,26 +105,43 @@ window.PHOENIX_DATA = {
       .ctitle { flex-wrap:wrap; }
       .privacy { align-items:flex-start; }
       footer { gap:10px; }
-      .gallery-mobile-cta { display:block;margin-top:11px;padding:12px 15px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;text-align:center;font-size:13px;font-weight:850; }
+      .gallery-mobile-cta, .history-mobile-cta { display:block;margin-top:11px;padding:12px 15px;border-radius:12px;color:#fff;text-align:center;font-size:13px;font-weight:850; }
+      .gallery-mobile-cta { background:linear-gradient(135deg,var(--blue),var(--violet)); }
+      .history-mobile-cta { background:#162744; }
     }
   `;
   document.head.appendChild(style);
 
   const nav = document.querySelector('.navlinks');
+  if (nav && !nav.querySelector('[href="historique.html"]')) {
+    const historyLink = document.createElement('a');
+    historyLink.href = 'historique.html';
+    historyLink.className = 'history-link';
+    historyLink.textContent = 'Calendrier';
+    nav.appendChild(historyLink);
+  }
   if (nav && !nav.querySelector('[href="galerie.html"]')) {
-    const link = document.createElement('a');
-    link.href = 'galerie.html';
-    link.className = 'gallery-link';
-    link.textContent = 'Galerie';
-    nav.appendChild(link);
+    const galleryLink = document.createElement('a');
+    galleryLink.href = 'galerie.html';
+    galleryLink.className = 'gallery-link';
+    galleryLink.textContent = 'Galerie';
+    nav.appendChild(galleryLink);
   }
 
   const heroActions = document.querySelector('.actions');
-  if (heroActions && !heroActions.querySelector('[href="galerie.html"]')) {
+  if (heroActions && !document.querySelector('.history-mobile-cta')) {
+    const historyCta = document.createElement('a');
+    historyCta.href = 'historique.html';
+    historyCta.className = 'history-mobile-cta';
+    historyCta.textContent = 'Choisir une date';
+    heroActions.insertAdjacentElement('afterend', historyCta);
+  }
+  const historyCta = document.querySelector('.history-mobile-cta');
+  if (historyCta && !document.querySelector('.gallery-mobile-cta')) {
     const galleryCta = document.createElement('a');
     galleryCta.href = 'galerie.html';
     galleryCta.className = 'gallery-mobile-cta';
     galleryCta.textContent = 'Voir les repas et randonnées';
-    heroActions.insertAdjacentElement('afterend', galleryCta);
+    historyCta.insertAdjacentElement('afterend', galleryCta);
   }
 })();
