@@ -69,3 +69,20 @@ window.PHOENIX={
     trophees:{title:'Trophées',icon:'♕',accent:'gold',summary:'Les jalons, records et étapes du challenge.'}
   }
 };
+
+/* Chargement des avatars Phoenix V1 sans exposer les exports Santé */
+(()=>{
+  const css=document.createElement('link');
+  css.rel='stylesheet';
+  css.href='avatars.css?v=20260729-1';
+  document.head.appendChild(css);
+  const parts=[1,2,3,4].map(n=>fetch(`assets/avatar-sprite-${n}.txt?v=20260729-1`,{cache:'no-store'}).then(r=>{
+    if(!r.ok)throw new Error(`Avatar part ${n}: ${r.status}`);
+    return r.text();
+  }));
+  Promise.all(parts).then(chunks=>{
+    const uri=`url("data:image/webp;base64,${chunks.join('')}")`;
+    document.documentElement.style.setProperty('--phoenix-avatar-sprite',uri);
+    document.documentElement.classList.add('phoenix-avatars-ready');
+  }).catch(err=>console.error('Project Phoenix avatars:',err));
+})();
