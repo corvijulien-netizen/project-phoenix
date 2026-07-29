@@ -1,1 +1,90 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080c13"><title>Project Phoenix — Détails</title><link rel="stylesheet" href="styles.css"></head><body><header class="wrap nav"><a class="brand" href="index.html"><span class="mark">🔥</span><span><small>PROJECT</small><b>PHOENIX</b></span></a><nav class="links"><a href="index.html">Accueil</a><a href="details.html?theme=activite">Activité</a><a href="details.html?theme=sommeil">Sommeil</a><a href="details.html?theme=nutrition">Nutrition</a><a href="details.html?theme=transformation">Transformation</a><a href="details.html?theme=sante">Santé</a></nav><span class="public">JOUR 1 / 365</span></header><main class="wrap"><section class="hero"><span class="eyebrow"><i></i> Challenge Phoenix 365</span><h1 id="title">Détails</h1><p class="lead" id="summary"></p><a class="back" href="index.html">← Retour à la synthèse</a></section><section class="section"><div class="sectionHead"><span class="kicker">Période analysée</span><h2>Voir les tendances</h2><p>Aucune donnée antérieure au 29 juillet 2026 n’est utilisée. Les moyennes s’adapteront automatiquement au nombre de jours réellement disponibles.</p></div><div class="filters"><button class="filter active" data-range="today">Aujourd’hui</button><button class="filter" data-range="7" disabled>7 jours</button><button class="filter" data-range="30" disabled>30 jours</button><button class="filter" data-range="90" disabled>90 jours</button><button class="filter" data-range="all">Depuis le début</button></div><div class="metrics" id="metrics"></div><div class="chartbox"><div class="empty" id="chart"><b>Historique en construction</b>Le premier point de la courbe est enregistré aujourd’hui. Les moyennes et comparaisons apparaîtront progressivement.</div></div><div class="notice" id="note"></div></section><div class="privacy">Seules les données choisies pour le suivi public sont affichées. Les exports Santé complets restent privés.</div><footer><b>🔥 Project Phoenix</b><span>Challenge du 29 juillet 2026 au 28 juillet 2027</span><a href="index.html">Synthèse</a></footer></main><script src="data.js"></script><script>const p=new URLSearchParams(location.search);const key=p.get('theme')||'activite';const t=PHOENIX.topics[key]||PHOENIX.topics.activite;document.title='Project Phoenix — '+t.title;document.getElementById('title').textContent=t.icon+' '+t.title;document.getElementById('summary').textContent=t.summary;document.getElementById('note').textContent=t.note;document.getElementById('metrics').innerHTML=t.metrics.map(m=>'<article class="metric"><span>'+m[0]+'</span><b>'+m[1]+'</b></article>').join('');document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{if(b.disabled)return;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('chart').innerHTML=b.dataset.range==='all'?'<b>Depuis le début</b>Le challenge ne contient pour l’instant qu’une seule journée officielle.':'<b>Aujourd’hui</b>Données du Jour 1, encore en cours de collecte.';}));</script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080c13">
+<meta name="description" content="Détails et tendances du Project Phoenix.">
+<link rel="icon" href="phoenix.svg" type="image/svg+xml">
+<title>Project Phoenix — Détails</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="index.html"><span class="mark"><img src="phoenix.svg" alt="Phoenix IA" style="width:100%;height:100%;padding:3px"></span><span><small>PROJECT</small><b>PHOENIX</b></span></a>
+  <nav class="links"><a href="index.html">Tableau de bord</a><a href="details.html?theme=activite">Activité</a><a href="details.html?theme=sommeil">Sommeil</a><a href="details.html?theme=transformation">Transformation</a><a href="details.html?theme=sante">Santé</a></nav>
+  <span class="public">JOUR 1 / 365</span>
+</header>
+<div class="app-shell">
+<aside class="phoenix-side-nav" aria-label="Navigation principale">
+  <a href="index.html"><span class="navIcon">⌂</span><span>Accueil</span></a>
+  <a class="activity-link" data-theme-link="activite" href="details.html?theme=activite"><span class="navIcon">♨</span><span>Activité</span></a>
+  <a class="sleep-link" data-theme-link="sommeil" href="details.html?theme=sommeil"><span class="navIcon">☾</span><span>Sommeil</span></a>
+  <a class="nutrition-link" data-theme-link="nutrition" href="details.html?theme=nutrition"><span class="navIcon">♜</span><span>Nutrition</span></a>
+  <a class="transform-link" data-theme-link="transformation" href="details.html?theme=transformation"><span class="navIcon">▧</span><span>Mesures</span></a>
+  <a class="health-link" data-theme-link="sante" href="details.html?theme=sante"><span class="navIcon">♥</span><span>Santé</span></a>
+  <a class="journal-link" data-theme-link="journal" href="details.html?theme=journal"><span class="navIcon">▤</span><span>Journal</span></a>
+  <a class="trophy-link" data-theme-link="trophees" href="details.html?theme=trophees"><span class="navIcon">♕</span><span>Trophées</span></a>
+</aside>
+<main class="mainwrap">
+<section class="hero detailHero">
+  <span class="eyebrow"><i></i> Analyse détaillée · données officielles</span>
+  <h1 id="title">Détails</h1>
+  <p class="lead" id="summary"></p>
+  <div class="heroActions" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+    <a class="btn primary" href="index.html">← Retour au tableau de bord</a>
+    <a class="btn ghost" id="nextTheme" href="details.html?theme=activite">Rubrique suivante →</a>
+  </div>
+</section>
+<section class="section">
+  <div class="rangeIntro"><div><span class="kicker">Période analysée</span><h2 style="margin:5px 0 4px">Voir les tendances</h2><p style="margin:0;color:var(--muted)">Les calculs n’utilisent que les journées officielles à partir du 29 juillet 2026.</p></div><div class="rangeMeta"><span id="rangeLabel">Aujourd’hui</span><b id="availableDays">1 journée disponible</b></div></div>
+  <div class="filters">
+    <button class="filter active" data-range="today">Aujourd’hui</button>
+    <button class="filter" data-range="7">7 derniers jours</button>
+    <button class="filter" data-range="month">Mois en cours</button>
+    <button class="filter" data-range="all">Depuis le début</button>
+  </div>
+  <div class="rangeSummary" id="metrics"></div>
+  <div class="detailGrid">
+    <article class="card">
+      <div class="chartHeader"><div><span class="kicker" id="chartKicker">Évolution</span><h3 id="chartTitle">Courbe</h3></div><div class="chartLegend"><span id="chartLegendLabel">Valeur actuelle</span><b id="chartLegendValue">—</b></div></div>
+      <div class="chartCanvas" id="chart"></div>
+    </article>
+    <aside class="card"><span class="kicker">Résumé de la période</span><h3 id="periodTitle">Aujourd’hui</h3><div class="periodList" id="periodList"></div><div class="periodNote" id="periodNote"></div></aside>
+  </div>
+  <div class="dailyTable" id="dailyTable"></div>
+</section>
+<div class="privacy">Seules les données choisies pour le suivi public sont affichées. Les exports Santé complets restent privés.</div>
+<footer><b>🔥 Project Phoenix — Julien</b><span>Challenge du 29 juillet 2026 au 28 juillet 2027</span><a href="index.html">← Tableau de bord</a></footer>
+</main>
+</div>
+<nav class="phoenix-mobile-nav" aria-label="Navigation mobile"><a href="index.html"><span class="navIcon">⌂</span>Accueil</a><a href="details.html?theme=activite"><span class="navIcon">♨</span>Activité</a><a href="details.html?theme=sommeil"><span class="navIcon">☾</span>Sommeil</a><a href="details.html?theme=transformation"><span class="navIcon">▧</span>Mesures</a><a href="details.html?theme=journal"><span class="navIcon">▤</span>Journal</a></nav>
+<script src="data.js"></script>
+<script>
+const H=window.PHOENIX;
+const order=['activite','sommeil','nutrition','transformation','sante','journal','trophees'];
+const qs=new URLSearchParams(location.search);const key=H.topics[qs.get('theme')]?qs.get('theme'):'activite';
+const topic=H.topics[key];document.title='Project Phoenix — '+topic.title;document.getElementById('title').textContent=topic.icon+' '+topic.title;document.getElementById('summary').textContent=topic.summary;document.querySelectorAll('[data-theme-link]').forEach(a=>a.classList.toggle('is-active',a.dataset.themeLink===key));
+const next=order[(order.indexOf(key)+1)%order.length];document.getElementById('nextTheme').href='details.html?theme='+next;document.getElementById('nextTheme').textContent=H.topics[next].title+' →';
+const fmt0=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(n);const fmt1=n=>new Intl.NumberFormat('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}).format(n);const fmt2=n=>new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);const dateFr=s=>new Date(s+'T12:00:00').toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric'});const hm=h=>{if(h==null)return '—';const m=Math.round(h*60);return Math.floor(m/60)+' h '+String(m%60).padStart(2,'0')};
+const avg=(arr,k)=>{const v=arr.map(x=>x[k]).filter(x=>typeof x==='number'&&!Number.isNaN(x));return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};const sum=(arr,k)=>{const v=arr.map(x=>x[k]).filter(x=>typeof x==='number'&&!Number.isNaN(x));return v.length?v.reduce((a,b)=>a+b,0):null};const latest=arr=>arr[arr.length-1];
+function rangeData(r){const all=H.history.slice().sort((a,b)=>a.date.localeCompare(b.date));const end=new Date(all[all.length-1].date+'T12:00:00');if(r==='today')return all.slice(-1);if(r==='7'){const start=new Date(end);start.setDate(start.getDate()-6);return all.filter(x=>new Date(x.date+'T12:00:00')>=start)}if(r==='month'){const ym=all[all.length-1].date.slice(0,7);return all.filter(x=>x.date.startsWith(ym))}return all}
+function value(v,unit='',digits=0){if(v==null)return 'En attente';const f=digits===2?fmt2:digits===1?fmt1:fmt0;return f(v)+(unit?' '+unit:'')}
+function config(arr){const last=latest(arr),first=arr[0];const days=arr.length;const c={};
+if(key==='activite'){c.metrics=[['Pas moyens',value(avg(arr,'steps'))],['Distance moyenne',value(avg(arr,'distanceKm'),'km',2)],['Calories actives moy.',value(avg(arr,'activeKcal'),'kcal')],['Exercice moyen',value(avg(arr,'exerciseMin'),'min')]];c.chartKey='steps';c.chartName='Pas par jour';c.chartValue=value(last.steps,'pas');c.list=[['Total de pas',value(sum(arr,'steps'))],['Distance totale',value(sum(arr,'distanceKm'),'km',2)],['Calories actives totales',value(sum(arr,'activeKcal'),'kcal')],['Meilleure journée',value(Math.max(...arr.map(x=>x.steps)),'pas')]];}
+if(key==='sommeil'){c.metrics=[['Sommeil moyen',hm(avg(arr,'sleepHours'))],['Profond moyen',value(avg(arr,'sleepDeepMin'),'min')],['REM moyen',value(avg(arr,'sleepRemMin'),'min')],['FC repos moyenne',value(avg(arr,'restingHR'),'bpm')]];c.chartKey='sleepHours';c.chartName='Sommeil par nuit';c.chartValue=hm(last.sleepHours);c.list=[['Nuits suivies',days],['Nuits ≥ 7 h',arr.filter(x=>x.sleepHours>=7).length],['Sommeil profond total',value(sum(arr,'sleepDeepMin'),'min')],['Réveillé moyen',value(avg(arr,'awakeMin'),'min')]];}
+if(key==='nutrition'){c.metrics=[['Calories consignées',value(avg(arr,'loggedCaloriesKcal'),'kcal')],['Protéines moyennes',value(avg(arr,'proteinG'),'g')],['Qualité moyenne',value(avg(arr,'nutritionScore'),'/10',1)],['Repas suivis',value(sum(arr,'mealCount'))]];c.chartKey='proteinG';c.chartName='Protéines par jour';c.chartValue=value(last.proteinG,'g');c.list=[['Jours renseignés',arr.filter(x=>x.loggedCaloriesKcal!=null).length],['Jours non renseignés',arr.filter(x=>x.loggedCaloriesKcal==null).length],['Calories totales consignées',value(sum(arr,'loggedCaloriesKcal'),'kcal')],['Statut actuel',last.loggedCaloriesKcal==null?'À compléter':'Renseigné']];}
+if(key==='transformation'){const delta=last.weightKg-first.weightKg;c.metrics=[['Poids actuel',value(last.weightKg,'kg',1)],['Évolution',value(delta,'kg',1)],['Graisse corporelle',value(last.bodyFatPct,'%',1)],['Tour de taille',value(last.waistCm,'cm',1)]];c.chartKey='weightKg';c.chartName='Évolution du poids';c.chartValue=value(last.weightKg,'kg',1);c.list=[['Poids de départ',value(first.weightKg,'kg',1)],['Objectif',value(H.profile.goalWeightKg,'kg')],['Masse maigre',value(last.leanMassKg,'kg',2)],['IMC actuel',value(last.bmi,'',1)]];}
+if(key==='sante'){c.metrics=[['FC repos moyenne',value(avg(arr,'restingHR'),'bpm')],['HRV moyenne',value(avg(arr,'hrvMs'),'ms',1)],['FC marche moyenne',value(avg(arr,'walkingHR'),'bpm',1)],['FC maximale',value(Math.max(...arr.map(x=>x.maxHR)),'bpm')]];c.chartKey='restingHR';c.chartName='Fréquence cardiaque au repos';c.chartValue=value(last.restingHR,'bpm');c.list=[['HRV actuelle',value(last.hrvMs,'ms',1)],['Vitesse de marche',value(last.walkingSpeedKmh,'km/h',2)],['Score Phoenix',value(last.score,'/100')],['Jours suivis',days]];}
+if(key==='journal'){c.metrics=[['Jours suivis',days],['Jour actuel',H.project.day+' / '+H.project.totalDays],['Départ',dateFr(H.project.start)],['Jours restants',H.project.totalDays-H.project.day]];c.chartKey='score';c.chartName='Score Phoenix quotidien';c.chartValue=value(last.score,'/100');c.list=[['Dernière entrée',last.journalTitle],['Dernière date',dateFr(last.date)],['Statistiques officielles',days+' jour'+(days>1?'s':'')],['Données test du 28/07','Exclues']];}
+if(key==='trophees'){c.metrics=[['Trophées débloqués',value(last.trophiesUnlocked)],['Jours suivis',days],['Série actuelle',days+' jour'+(days>1?'s':'')],['Prochain palier','7 jours suivis']];c.chartKey='trophiesUnlocked';c.chartName='Trophées cumulés';c.chartValue=value(last.trophiesUnlocked);c.list=[['Jour 1','Débloqué'],['Pesée officielle','Débloqué'],['10 000 pas','Débloqué'],['Premier 10 km','Débloqué']];}
+return c}
+function chart(arr,k,name){const vals=arr.map(x=>x[k]).filter(v=>typeof v==='number');if(!vals.length)return '<div class="emptyState"><b>Historique en attente</b>Cette donnée n’est pas encore renseignée pour la période sélectionnée.</div>';const W=760,Hh=310,p=45;const min=Math.min(...vals),max=Math.max(...vals),span=Math.max(max-min,1);const pts=arr.map((x,i)=>{const xx=arr.length===1?W/2:p+i*(W-2*p)/(arr.length-1);const yy=Hh-p-((x[k]-min)/span)*(Hh-2*p);return [xx,yy,x]}).filter(x=>typeof x[2][k]==='number');const path=pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');const area=path+' L '+pts[pts.length-1][0]+' '+(Hh-p)+' L '+pts[0][0]+' '+(Hh-p)+' Z';return `<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="${name}"><defs><linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46c9e8" stop-opacity=".28"/><stop offset="1" stop-color="#46c9e8" stop-opacity="0"/></linearGradient></defs><line class="gridline" x1="${p}" y1="${p}" x2="${W-p}" y2="${p}"/><line class="gridline" x1="${p}" y1="${Hh/2}" x2="${W-p}" y2="${Hh/2}"/><line class="gridline" x1="${p}" y1="${Hh-p}" x2="${W-p}" y2="${Hh-p}"/><path class="chartArea" d="${area}"/><path class="chartline" d="${path}"/>${pts.map(q=>`<circle class="chartPoint" cx="${q[0]}" cy="${q[1]}" r="6"/><text class="chartLabel" x="${q[0]}" y="${Hh-13}" text-anchor="middle">${q[2].date.slice(8,10)}/${q[2].date.slice(5,7)}</text>`).join('')}</svg>`}
+function table(arr,c){let cols=[];if(key==='activite')cols=[['Date','date'],['Pas','steps'],['Distance km','distanceKm'],['Calories','activeKcal'],['Exercice min','exerciseMin']];else if(key==='sommeil')cols=[['Date','date'],['Sommeil h','sleepHours'],['Profond min','sleepDeepMin'],['REM min','sleepRemMin'],['FC repos','restingHR']];else if(key==='transformation')cols=[['Date','date'],['Poids kg','weightKg'],['Graisse %','bodyFatPct'],['Masse maigre kg','leanMassKg'],['Taille cm','waistCm']];else if(key==='sante')cols=[['Date','date'],['FC repos','restingHR'],['HRV','hrvMs'],['FC marche','walkingHR'],['FC max','maxHR']];else return '<div class="periodNote">La vue quotidienne détaillée s’enrichira avec les prochains jours officiels.</div>';return `<table><thead><tr>${cols.map(x=>'<th>'+x[0]+'</th>').join('')}</tr></thead><tbody>${arr.map(r=>'<tr>'+cols.map(x=>'<td>'+(x[1]==='date'?dateFr(r.date):(r[x[1]]??'—'))+'</td>').join('')+'</tr>').join('')}</tbody></table>`}
+function render(r){const arr=rangeData(r),c=config(arr);const names={today:'Aujourd’hui','7':'7 derniers jours',month:'Mois en cours',all:'Depuis le début'};document.getElementById('rangeLabel').textContent=names[r];document.getElementById('availableDays').textContent=arr.length+' journée'+(arr.length>1?'s':'')+' disponible'+(arr.length>1?'s':'');document.getElementById('metrics').innerHTML=c.metrics.map(m=>`<article><span>${m[0]}</span><b>${m[1]}</b></article>`).join('');document.getElementById('chartTitle').textContent=c.chartName;document.getElementById('chartLegendValue').textContent=c.chartValue;document.getElementById('chart').innerHTML=chart(arr,c.chartKey,c.chartName);document.getElementById('periodTitle').textContent=names[r];document.getElementById('periodList').innerHTML=c.list.map(x=>`<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');document.getElementById('periodNote').textContent=arr.length===1?'La période sélectionnée ne contient pour l’instant qu’une seule journée officielle. Les moyennes sont donc identiques aux valeurs du Jour 1.':'Moyennes calculées sur '+arr.length+' journées officielles.';document.getElementById('dailyTable').innerHTML=table(arr,c)}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.range)}));const wanted=qs.get('range');const btn=document.querySelector(`[data-range="${wanted}"]`);if(btn){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');render(wanted)}else render('today');
+</script>
+</body>
+</html>
