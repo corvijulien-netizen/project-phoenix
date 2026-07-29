@@ -1,1 +1,71 @@
-window.PHOENIX={start:'2026-07-29',end:'2027-07-28',day:1,totalDays:365,lastUpdate:'29 juillet 2026 à 09:37 · journée en cours',profile:{name:'Julien',heightCm:186,goalWeightKg:80,startWeightKg:null},today:{steps:1539,distanceKm:1.182,activeKcal:116,exerciseMin:5,sleepHours:7.1784,sleepDeepHours:.9015,sleepRemHours:1.7195,sleepCoreHours:4.5575,awakeHours:.2504,restingHeartRate:77,walkingHeartRate:112,hrvMs:30.8,walkingSpeedKmh:4.85},archive:{date:'28/07/2026',label:'Journée test — hors statistiques officielles',steps:14580,distanceKm:12.494,activeKcal:1289,exerciseMin:118,restingHeartRate:72},publication:{weight:'En attente de la première pesée RENPHO',measurements:'En attente du mètre connecté',photos:'Première série prévue pendant la semaine 1'},topics:{activite:{title:'Activité',icon:'♨',accent:'green',summary:'Le mouvement quotidien, les marches et les records.',metrics:[['Pas','1 539'],['Distance','1,18 km'],['Calories actives','116 kcal'],['Exercice','5 min']],note:'Données partielles du 29 juillet au moment de la dernière synchronisation.'},sommeil:{title:'Sommeil',icon:'☾',accent:'purple',summary:'Durée, phases et récupération nocturne.',metrics:[['Sommeil total','7 h 11'],['Sommeil profond','54 min'],['Sommeil REM','1 h 43'],['FC au repos','77 bpm']],note:'Première nuit de référence du challenge.'},nutrition:{title:'Nutrition',icon:'♜',accent:'orange',summary:'Repas, protéines, équilibre et régularité.',metrics:[['Calories','En attente'],['Protéines','En attente'],['Qualité','En attente'],['Repas suivis','0']],note:'Le suivi nutritionnel officiel commence aujourd’hui.'},transformation:{title:'Transformation',icon:'▧',accent:'blue',summary:'Poids, mensurations et évolution visuelle.',metrics:[['Poids officiel','En attente'],['Mensurations','En attente'],['Photo de départ','Semaine 1'],['Objectif','80 kg']],note:'Le poids de départ sera publié après la première pesée officielle RENPHO.'},sante:{title:'Santé & récupération',icon:'♥',accent:'coral',summary:'Fréquence cardiaque, HRV et signaux de récupération.',metrics:[['FC au repos','77 bpm'],['HRV','30,8 ms'],['VO₂ max','En attente'],['Récupération','À construire']],note:'Les tendances deviendront pertinentes après plusieurs jours de données.'},journal:{title:'Journal',icon:'▤',accent:'cyan',summary:'Le contexte humain derrière les chiffres.',metrics:[['Jour','1 / 365'],['Départ','29/07/2026'],['Jours suivis','1'],['Jours restants','364']],note:'Aujourd’hui marque le point de départ officiel de Project Phoenix.'},trophees:{title:'Trophées',icon:'♕',accent:'gold',summary:'Les étapes et les jalons du challenge.',metrics:[['Challenge lancé','Débloqué'],['Première pesée','À venir'],['7 jours suivis','1 / 7'],['Premier kilo','À venir']],note:'Les trophées récompensent la régularité autant que les résultats.'}}};
+window.PHOENIX={
+  project:{
+    name:'Project Phoenix',
+    owner:'Julien',
+    start:'2026-07-29',
+    end:'2027-07-28',
+    day:1,
+    totalDays:365,
+    lastUpdate:'29 juillet 2026 à 20:55',
+    scope:'Les statistiques officielles commencent le 29 juillet 2026. Les données du 28 juillet restent exclues.'
+  },
+  profile:{
+    heightCm:183,
+    goalWeightKg:80,
+    startWeightKg:112.5
+  },
+  history:[
+    {
+      date:'2026-07-29',
+      weightKg:112.5,
+      bmi:33.6,
+      bodyFatPct:34.1,
+      leanMassKg:74.14,
+      waistCm:108.3,
+      steps:16617,
+      distanceKm:13.53,
+      activeKcal:1265,
+      exerciseMin:130,
+      walkingSpeedKmh:5.18,
+      restingHR:74,
+      walkingHR:119.5,
+      maxHR:175,
+      hrvMs:29.8,
+      sleepHours:7.1784,
+      sleepCoreMin:273,
+      sleepDeepMin:54,
+      sleepRemMin:103,
+      awakeMin:15,
+      score:94,
+      loggedCaloriesKcal:null,
+      proteinG:null,
+      nutritionScore:null,
+      mealCount:null,
+      trophiesUnlocked:4,
+      journalTitle:'Le point zéro officiel',
+      journalText:'Pesée RENPHO, composition corporelle, tour de taille, sommeil et grande marche enregistrés.'
+    }
+  ],
+  mainWalk:{
+    date:'2026-07-29',
+    start:'17:14',
+    end:'19:19',
+    distanceKm:9.86,
+    steps:12390,
+    exerciseMin:116,
+    activeKcal:842
+  },
+  archiveTest:{
+    date:'2026-07-28',
+    label:'Journée test — hors statistiques officielles'
+  },
+  topics:{
+    activite:{title:'Activité',icon:'♨',accent:'green',summary:'Pas, kilomètres, calories actives, exercice, vitesse et records.'},
+    sommeil:{title:'Sommeil',icon:'☾',accent:'purple',summary:'Durée totale, phases, fréquence cardiaque et récupération.'},
+    nutrition:{title:'Nutrition',icon:'♜',accent:'orange',summary:'Repas, calories consignées, protéines, équilibre et régularité.'},
+    transformation:{title:'Transformation',icon:'▧',accent:'blue',summary:'Poids, composition corporelle, mensurations et évolution visuelle.'},
+    sante:{title:'Santé & récupération',icon:'♥',accent:'coral',summary:'Fréquence cardiaque, HRV et signaux de récupération.'},
+    journal:{title:'Journal',icon:'▤',accent:'cyan',summary:'Le contexte humain et les décisions derrière les chiffres.'},
+    trophees:{title:'Trophées',icon:'♕',accent:'gold',summary:'Les jalons, records et étapes du challenge.'}
+  }
+};
