@@ -1,0 +1,40 @@
+{
+  "project": {
+    "name": "Project Phoenix",
+    "owner": "Julien",
+    "startDate": "2026-07-28",
+    "lastUpdate": "2026-07-29T09:37:00+02:00",
+    "day": 2,
+    "tagline": "Une transformation réelle, suivie avec des données réelles."
+  },
+  "body": {
+    "startWeightKg": 115.0,
+    "currentWeightKg": 115.0,
+    "targetWeightKg": 80.0,
+    "weightStatus": "provisoire",
+    "heightCm": 186
+  },
+  "latestDay": {
+    "date": "2026-07-28",
+    "steps": 14580,
+    "distanceKm": 12.49,
+    "exerciseMinutes": 118,
+    "activeCaloriesKcal": 1289,
+    "restingHeartRateBpm": 72,
+    "sleepHours": 7.18,
+    "deepSleepMinutes": 54,
+    "remSleepMinutes": 103,
+    "nutritionScore": 8.5,
+    "proteinG": 77,
+    "loggedCaloriesKcal": 1220,
+    "phoenixScore": 83
+  },
+  "journal": {
+    "title": "Le départ",
+    "excerpt": "Première journée officielle du projet : une longue marche, Apple Santé opérationnel et les premières bases du système de mesure.",
+    "focus": "Transformer l’élan du départ en régularité."
+  },
+  "privacy": {
+    "message": "Seules les statistiques choisies par Julien sont publiées. Les exports Apple Santé complets restent privés."
+  }
+}
