@@ -2,37 +2,59 @@
   "project": {
     "name": "Project Phoenix",
     "owner": "Julien",
-    "startDate": "2026-07-28",
-    "lastUpdate": "2026-07-29T09:37:00+02:00",
-    "day": 2,
-    "tagline": "Une transformation réelle, suivie avec des données réelles."
+    "startDate": "2026-07-29",
+    "lastUpdate": "2026-07-29T20:55:00+02:00",
+    "day": 1,
+    "durationDays": 365,
+    "tagline": "Une transformation réelle, suivie avec des données réelles.",
+    "scope": "Les statistiques officielles commencent le 29 juillet 2026. Les données du 28 juillet sont exclues."
   },
   "body": {
-    "startWeightKg": 115.0,
-    "currentWeightKg": 115.0,
+    "startWeightKg": 112.5,
+    "currentWeightKg": 112.5,
     "targetWeightKg": 80.0,
-    "weightStatus": "provisoire",
-    "heightCm": 186
+    "weightStatus": "officiel RENPHO",
+    "heightCm": 183,
+    "bmi": 33.6,
+    "bodyFatPercent": 34.1,
+    "leanMassKg": 74.14,
+    "waistCm": 108.3
   },
   "latestDay": {
-    "date": "2026-07-28",
-    "steps": 14580,
-    "distanceKm": 12.49,
-    "exerciseMinutes": 118,
-    "activeCaloriesKcal": 1289,
-    "restingHeartRateBpm": 72,
+    "date": "2026-07-29",
+    "steps": 16617,
+    "distanceKm": 13.53,
+    "exerciseMinutes": 130,
+    "activeCaloriesKcal": 1265,
+    "restingHeartRateBpm": 74,
+    "walkingHeartRateBpm": 119.5,
+    "maxHeartRateBpm": 175,
     "sleepHours": 7.18,
+    "coreSleepMinutes": 273,
     "deepSleepMinutes": 54,
     "remSleepMinutes": 103,
-    "nutritionScore": 8.5,
-    "proteinG": 77,
-    "loggedCaloriesKcal": 1220,
-    "phoenixScore": 83
+    "awakeMinutes": 15,
+    "hrvMs": 29.8,
+    "walkingSpeedKmh": 5.18,
+    "phoenixScore": 94
+  },
+  "mainWalk": {
+    "start": "17:14",
+    "end": "19:19",
+    "distanceKm": 9.86,
+    "steps": 12390,
+    "exerciseMinutes": 116,
+    "activeCaloriesKcal": 842
+  },
+  "measurements": {
+    "available": ["Poids", "IMC", "Graisse corporelle", "Masse maigre", "Tour de taille"],
+    "missingFromExport": ["Poitrine", "Hanches", "Bras droit", "Bras gauche", "Cuisse droite", "Cuisse gauche"],
+    "note": "Le fichier du 29 juillet contient le tour de taille, mais pas les autres circonférences corporelles."
   },
   "journal": {
-    "title": "Le départ",
-    "excerpt": "Première journée officielle du projet : une longue marche, Apple Santé opérationnel et les premières bases du système de mesure.",
-    "focus": "Transformer l’élan du départ en régularité."
+    "title": "Le point zéro officiel",
+    "excerpt": "Le Jour 1 est maintenant complet : pesée RENPHO, composition corporelle, tour de taille et une grande marche enregistrée dans Apple Santé.",
+    "focus": "Récupérer correctement et transformer ce très bon départ en régularité."
   },
   "privacy": {
     "message": "Seules les statistiques choisies par Julien sont publiées. Les exports Apple Santé complets restent privés."
