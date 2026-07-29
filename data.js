@@ -1,5 +1,5 @@
 window.PHOENIX_DATA = {
-  deploymentRevision: "2026-07-29T13:36:00+02:00",
+  deploymentRevision: "2026-07-29T13:44:00+02:00",
   profile: {
     name: "Julien",
     startDate: "2026-07-28",
@@ -64,9 +64,9 @@ window.PHOENIX_DATA = {
   ]
 };
 
-(function applyPhoenixMobileFix(){
+(function applyPhoenixV2(){
   const style = document.createElement('style');
-  style.id = 'phoenix-mobile-fix';
+  style.id = 'phoenix-v2-fix';
   style.textContent = `
     html, body { max-width: 100%; overflow-x: hidden; }
     .wrap, .hero, .stats, .grid2, .health, .journal, .photos, .trophies,
@@ -79,53 +79,52 @@ window.PHOENIX_DATA = {
       overflow-wrap: anywhere;
       word-break: normal;
     }
+    .gallery-link { color: var(--blue) !important; }
+    .gallery-mobile-cta { display:none; }
     @media (max-width: 680px) {
       .wrap { width: calc(100% - 18px) !important; }
-      .hero {
-        width: 100% !important;
-        grid-template-columns: minmax(0,1fr) !important;
-        padding: 42px 20px 28px !important;
-        gap: 28px !important;
-      }
-      .hero > div { width: 100%; min-width: 0; }
-      .hero h1 {
-        font-size: clamp(34px, 10.5vw, 46px) !important;
-        line-height: 1.06 !important;
-        letter-spacing: -0.045em !important;
-      }
-      .lead { font-size: 16px !important; }
-      .actions { width: 100%; }
-      .btn { width: 100%; display: block; }
-      .meta { white-space: normal !important; }
-      .score {
-        width: 100% !important;
-        max-width: none !important;
-        display: grid !important;
-        grid-template-columns: 112px minmax(0,1fr) !important;
-        align-items: center !important;
-        gap: 16px !important;
-        padding: 18px !important;
-        text-align: left !important;
-      }
-      .ring {
-        width: 112px !important;
-        height: 112px !important;
-        margin: 0 !important;
-      }
-      .ring strong { font-size: 34px !important; }
-      .score > small, .score > h3, .score > p { grid-column: 2; }
-      .score > small { align-self: end; }
-      .score > h3 { margin: -4px 0 0 !important; }
-      .score > p { margin-top: 2px !important; }
-      .stats { margin: 12px 0 0 !important; width: 100% !important; }
-      .stat { width: 100% !important; }
-      .foot { flex-wrap: wrap; }
-      .topline, .sleeplegend, .minis, .activity, .bodydata { min-width: 0; }
-      .topline > *, .sleeplegend > *, .minis > *, .activity > *, .bodydata > * { min-width: 0; }
-      .ctitle { flex-wrap: wrap; }
-      .privacy { align-items: flex-start; }
-      footer { gap: 10px; }
+      .hero { width:100%!important;grid-template-columns:minmax(0,1fr)!important;padding:42px 20px 28px!important;gap:28px!important; }
+      .hero > div { width:100%;min-width:0; }
+      .hero h1 { font-size:clamp(34px,10.5vw,46px)!important;line-height:1.06!important;letter-spacing:-.045em!important; }
+      .lead { font-size:16px!important; }
+      .actions { width:100%; }
+      .btn { width:100%;display:block; }
+      .meta { white-space:normal!important; }
+      .score { width:100%!important;max-width:none!important;display:grid!important;grid-template-columns:112px minmax(0,1fr)!important;align-items:center!important;gap:16px!important;padding:18px!important;text-align:left!important; }
+      .ring { width:112px!important;height:112px!important;margin:0!important; }
+      .ring strong { font-size:34px!important; }
+      .score > small,.score > h3,.score > p { grid-column:2; }
+      .score > small { align-self:end; }
+      .score > h3 { margin:-4px 0 0!important; }
+      .score > p { margin-top:2px!important; }
+      .stats { margin:12px 0 0!important;width:100%!important; }
+      .stat { width:100%!important; }
+      .foot { flex-wrap:wrap; }
+      .topline,.sleeplegend,.minis,.activity,.bodydata { min-width:0; }
+      .topline > *,.sleeplegend > *,.minis > *,.activity > *,.bodydata > * { min-width:0; }
+      .ctitle { flex-wrap:wrap; }
+      .privacy { align-items:flex-start; }
+      footer { gap:10px; }
+      .gallery-mobile-cta { display:block;margin-top:11px;padding:12px 15px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;text-align:center;font-size:13px;font-weight:850; }
     }
   `;
   document.head.appendChild(style);
+
+  const nav = document.querySelector('.navlinks');
+  if (nav && !nav.querySelector('[href="galerie.html"]')) {
+    const link = document.createElement('a');
+    link.href = 'galerie.html';
+    link.className = 'gallery-link';
+    link.textContent = 'Galerie';
+    nav.appendChild(link);
+  }
+
+  const heroActions = document.querySelector('.actions');
+  if (heroActions && !heroActions.querySelector('[href="galerie.html"]')) {
+    const galleryCta = document.createElement('a');
+    galleryCta.href = 'galerie.html';
+    galleryCta.className = 'gallery-mobile-cta';
+    galleryCta.textContent = 'Voir les repas et randonnées';
+    heroActions.insertAdjacentElement('afterend', galleryCta);
+  }
 })();
